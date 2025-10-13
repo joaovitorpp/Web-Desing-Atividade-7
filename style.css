@@ -8,6 +8,7 @@ body {
   margin: 0;
   padding: 0;
   line-height: 1.6;             /* melhora legibilidade */
+  padding-bottom: 50px;
 }
 
 body, html {
@@ -128,6 +129,8 @@ h2 {
   max-width: 800px;
   width: 90%;
   text-align: center;
+  max-height: 80%;
+  overflow-y: auto;
 }
 
 .game-overlay h2 {
@@ -178,6 +181,16 @@ h2 {
 
   .game-overlay p {
     font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .game-area {
+    min-height: auto;
+  }
+  .game-overlay {
+    width: 90%;
+    padding: 20px;
   }
 }
 
