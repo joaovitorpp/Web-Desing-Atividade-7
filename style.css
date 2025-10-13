@@ -10,6 +10,12 @@ body {
   line-height: 1.6;             /* melhora legibilidade */
 }
 
+body, html {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
 /* =============================
    Títulos
    ============================= */
