@@ -2,13 +2,12 @@
    Geral do site - Dark Mode
    ============================= */
 body {
-  background-color: #121212;    /* fundo escuro */
-  color: #e0e0e0;               /* texto claro */
+  background-color: #121212;
+  color: #e0e0e0;
   font-family: 'Roboto', Arial, sans-serif;
   margin: 0;
   padding: 0;
-  line-height: 1.6;             /* melhora legibilidade */
-  padding-bottom: 50px;
+  line-height: 1.6;
 }
 
 body, html {
@@ -18,11 +17,28 @@ body, html {
 }
 
 /* =============================
+   Header
+   ============================= */
+header {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  padding: 30px 0;
+  text-align: center;
+  border-bottom: 3px solid #ffd700;
+}
+
+header h1 {
+  color: #ffd700;
+  font-size: 3.5rem;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* =============================
    Títulos
    ============================= */
 h2 {
   text-align: center;
-  font-size: 3rem;              /* maior destaque */
+  font-size: 3rem;
   font-weight: bold;
   color: #ffffff;
   margin: 50px 0 30px 0;
@@ -41,10 +57,11 @@ h2 {
 }
 
 .info p {
-  font-size: 1.3rem;            /* texto maior */
-  line-height: 1.8;             /* mais espaçamento entre linhas */
+  font-size: 1.3rem;
+  line-height: 1.8;
   margin-bottom: 25px;
   color: #e0e0e0;
+  text-align: justify;
 }
 
 .info img {
@@ -71,6 +88,7 @@ h2 {
   max-width: 700px;
   height: 400px;
   border-radius: 10px;
+  border: none;
 }
 
 /* =============================
@@ -101,6 +119,7 @@ h2 {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
 .card:hover {
@@ -108,89 +127,166 @@ h2 {
   box-shadow: 0 8px 20px rgba(255,255,255,0.2);
 }
 
-/* Área de cada jogo ocupando a tela inteira */
+.card:hover img {
+  transform: scale(1.1);
+}
+
+/* =============================
+   Seções de Crítica - CORRIGIDO
+   ============================= */
 .game-area {
   position: relative;
   width: 100%;
   min-height: 100vh;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #fff;
-  scroll-snap-align: start; /* opcional, para scroll mais “snap” */
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .game-overlay {
-  background: rgba(0, 0, 0, 0.6); /* overlay semi-transparente */
+  background: rgba(0, 0, 0, 0.75);
   padding: 40px;
   border-radius: 15px;
   max-width: 800px;
   width: 90%;
   text-align: center;
-  max-height: 80%;
-  overflow-y: auto;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .game-overlay h2 {
-  font-size: 3rem;
-  margin-bottom: 20px;
+  font-size: 2.5rem;
+  margin-bottom: 25px;
   text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+  color: #ffffff;
 }
 
 .game-overlay p {
-  font-size: 1.3rem;
-  margin: 10px 0;
+  font-size: 1.2rem;
+  margin: 15px 0;
+  line-height: 1.6;
+}
+
+.game-overlay strong {
+  color: #ffd700;
 }
 
 .editable {
   font-style: italic;
-  color: #ffffff;
+  color: #e0e0e0;
+  display: block;
+  margin-top: 10px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  border-left: 4px solid #ffd700;
 }
 
+/* =============================
+   Footer
+   ============================= */
+footer {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  padding: 20px 0;
+  text-align: center;
+  border-top: 3px solid #ffd700;
+  margin-top: 50px;
+}
 
-
+footer p {
+  color: #e0e0e0;
+  margin: 0;
+  font-size: 1rem;
+}
 
 /* =============================
    Responsividade
    ============================= */
 @media (max-width: 768px) {
-  .candidatos img, .card {
-    width: 80%;
-    height: auto;
+  header h1 {
+    font-size: 2.5rem;
   }
-
-  .info img, .info iframe {
-    width: 90%;
-  }
-
-  .info p {
-    font-size: 1.2rem;          /* ajusta texto em telas pequenas */
-  }
-
+  
   h2 {
     font-size: 2.2rem;
   }
+  
+  .candidatos {
+    flex-direction: column;
+  }
+  
+  .card {
+    width: 90%;
+    height: 400px;
+  }
+  
+  .info img, .info iframe {
+    width: 95%;
+  }
+  
+  .info p {
+    font-size: 1.1rem;
+    text-align: left;
+  }
+  
+  .game-area {
+    min-height: 100vh;
+    background-attachment: scroll;
+    padding: 10px;
+  }
+  
+  .game-overlay {
+    padding: 25px 15px;
+    width: 95%;
+  }
+  
+  .game-overlay h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+  
+  .game-overlay p {
+    font-size: 1rem;
+    margin: 10px 0;
+  }
+  
+  .editable {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
 }
 
-@media (max-width: 768px) {
-  .game-overlay h2 {
+@media (max-width: 480px) {
+  header h1 {
     font-size: 2rem;
   }
-
-  .game-overlay p {
-    font-size: 1.1rem;
+  
+  h2 {
+    font-size: 1.8rem;
   }
-}
-
-@media (max-width: 768px) {
-  .game-area {
-    min-height: auto;
-  }
+  
   .game-overlay {
-    width: 90%;
-    padding: 20px;
+    padding: 20px 10px;
+  }
+  
+  .game-overlay h2 {
+    font-size: 1.5rem;
+  }
+  
+  .game-overlay p {
+    font-size: 0.9rem;
+  }
+  
+  .info p {
+    font-size: 1rem;
   }
 }
-
